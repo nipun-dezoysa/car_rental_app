@@ -1,9 +1,11 @@
 import 'package:car_rental_app/data/models/Car.dart';
 import 'package:car_rental_app/presentation/widgets/car_card.dart';
+import 'package:car_rental_app/presentation/widgets/more_card.dart';
 import 'package:flutter/material.dart';
 
 class CarDetailsPage extends StatelessWidget {
-  const CarDetailsPage({super.key});
+  final Car car;
+  const CarDetailsPage({super.key, required this.car});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +19,7 @@ class CarDetailsPage extends StatelessWidget {
       body: Column(
         children: [
           CarCard(
-            car: Car(
-              model: 'Mercedes Benz',
-              distance: 100,
-              fuelCapacity: 50,
-              pricePerHour: 100,
-            ),
+            car: car,
           ),
           SizedBox(height: 20),
           Padding(
@@ -77,6 +74,23 @@ class CarDetailsPage extends StatelessWidget {
                     ),
                   ),
                 )
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              spacing: 5,
+              children: [
+                MoreCard(
+                  car: car,
+                ),
+                MoreCard(
+                  car: car,
+                ),
+                MoreCard(
+                  car: car,
+                ),
               ],
             ),
           )
