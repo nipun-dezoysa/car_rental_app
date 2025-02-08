@@ -11,6 +11,7 @@ class CarBloc extends Bloc<CarEvent, CarState> {
       emit(CarsLoading());
       try {
         final cars = await getCars.call();
+        emit(CarsLoaded(cars));
       } catch (e) {
         emit(CarsError(e.toString()));
       }
